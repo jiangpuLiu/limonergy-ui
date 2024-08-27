@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Limonergy-Ui"
-  text: "Limonergy-Ui组件库"
+  text: "Limonergy-Ui 组件库"
   tagline: My great project tagline
   actions:
     - theme: brand
