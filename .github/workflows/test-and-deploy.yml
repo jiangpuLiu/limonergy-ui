@@ -24,7 +24,7 @@ jobs:
         run: pnpm install --frozen-lockfile
       
       - name: Build hooks
-        run: npm run build-hooks
+        run: npm run build
 
       - name: Run tests
         run: npm run test
