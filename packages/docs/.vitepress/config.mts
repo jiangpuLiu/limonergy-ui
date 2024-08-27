@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Limonergy-Ui",
-  description: "Limonergy-Ui组件库",
+  description: "Limonergy-Ui 组件库",
   base: '/limonergy-ui/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
