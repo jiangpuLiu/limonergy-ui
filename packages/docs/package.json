@@ -1,0 +1,17 @@
+{
+  "name": "@limonergy-ui/docs",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.md",
+  "scripts": {
+    "dev": "vitepress dev ./",
+    "build": "vitepress build ./"
+  },
+  "devDependencies": {
+    "@vitepress-demo-preview/component": "^2.3.2",
+    "@vitepress-demo-preview/plugin": "^1.2.3",
+    "vitepress": "1.1.4"
+  },
+  "keywords": [],
+  "license": "ISC"
+}

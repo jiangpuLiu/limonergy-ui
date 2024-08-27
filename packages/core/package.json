@@ -1,0 +1,17 @@
+{
+  "name": "limonergy-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "type": "module",
+  "module": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@limonergy-ui/components": "workspace:*"
+  }
+}
