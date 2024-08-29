@@ -7,5 +7,5 @@ import "@limonergy-ui/theme/index.css"
 library.add(fas)
 const installer = makeInstall(components);
 
-export * from "./components.ts";
+export * from "@limonergy-ui/components";
 export default installer;

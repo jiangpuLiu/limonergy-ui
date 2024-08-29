@@ -2,8 +2,10 @@ import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import {resolve} from 'path'
 import dts from 'vite-plugin-dts'
-import {readdirSync} from "node:fs";
-import {filter, map} from "lodash-es";
+import {readdirSync} from "fs";
+import {filter, delay, map} from "lodash-es";
+import shell from "shelljs";
+import hooks from "./hooksPlugin.ts";
 
 function getDirectoresSync(basePath: string) {
     const entries = readdirSync(basePath, {withFileTypes: true})
@@ -13,13 +15,31 @@ function getDirectoresSync(basePath: string) {
     )
 }
 
+const TRY_MOVE_STYLES_DELAY = 800 as const
+function moveStyle() {
+    try {
+        readdirSync('./dist/es/theme')
+        shell.mv('./dist/es/theme', './dist')
+    }catch (e) {
+        delay(moveStyle, TRY_MOVE_STYLES_DELAY)
+    }
+}
+
 export default defineConfig({
-    plugins: [vue(), dts({
+    plugins: [
+        vue(),
+        dts({
         tsconfigPath: "../../tsconfig.build.json",
         outDir: 'dist/types',
-    })],
+    }),
+        hooks({
+            rmFiles: ['./dist/es', './dist/theme', './dist/types'],
+            afterBuild: moveStyle
+        })
+    ],
     build: {
         outDir: 'dist/es',
+        cssCodeSplit: true,
         lib: {
             entry: resolve(__dirname, './index.ts'),
             name: 'LimonengryUi',
@@ -38,6 +58,12 @@ export default defineConfig({
             output: {
                 assetFileNames: (assetInfo) => {
                     if (assetInfo.name === 'style.css') return 'index.css'
+                    if (
+                        assetInfo.type === "asset" &&
+                        /\.(css)$/i.test(assetInfo.name as string)
+                    ) {
+                        return "theme/[name].[ext]";
+                    }
                     return assetInfo.name as string
                 },
                 // 分包处理

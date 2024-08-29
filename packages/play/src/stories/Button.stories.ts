@@ -1,7 +1,7 @@
 import type { Meta, StoryObj, ArgTypes } from "@storybook/vue3";
 import { fn, within, userEvent, expect } from "@storybook/test";
 import { LmButton, LmButtonGroup } from "limonergy-ui";
-// import "eric-ui/dist/theme/Button.css";
+import "limonergy-ui/dist/theme/Button.css";
 
 type Story = StoryObj<typeof LmButton> & { argTypes?: ArgTypes };
 

@@ -1,9 +1,33 @@
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import {resolve} from 'path'
+import {compression} from 'vite-plugin-compression2'
+import {readdirSync} from "fs";
+import shell from 'shelljs'
+import {delay} from "lodash-es";
+import hooks from './hooksPlugin.ts'
+
+
+const TRY_MOVE_STYLES_DELAY = 800 as const
+function moveStyle() {
+    try {
+        readdirSync('./dist/umd/index.css.gz')
+        shell.cp('./dist/umd/index.css', './dist/index.css')
+    }catch (e) {
+        delay(moveStyle, TRY_MOVE_STYLES_DELAY)
+    }
+}
 
 export default defineConfig({
-    plugins: [vue()],
+    plugins: [
+        vue(),
+        compression({include:  /.(cjs|css)$/i}),
+        hooks({
+            rmFiles:['./dist/umd/', './dist/index.css'],
+            afterBuild: moveStyle,
+        })
+
+    ],
     build: {
         outDir: 'dist/umd',
         lib: {
