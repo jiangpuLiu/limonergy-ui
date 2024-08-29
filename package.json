@@ -10,7 +10,6 @@
     "docs:build": "pnpm --filter @limonergy-ui/docs build",
     "test": "pnpm --filter @limonergy-ui/components test",
     "build": "pnpm --filter limonergy-ui build"
-
   },
   "keywords": [],
   "author": "",
@@ -28,6 +27,8 @@
     "postcss-each-variables": "^0.3.0",
     "postcss-for": "^2.1.1",
     "postcss-nested": "^6.0.1",
+    "release-it": "^17.6.0",
+    "rimraf": "^6.0.1",
     "typescript": "^5.2.2",
     "vite": "^5.1.4",
     "vite-plugin-dts": "^3.9.1",
@@ -41,9 +42,9 @@
     "@limonergy-ui/hooks": "workspace:*",
     "@limonergy-ui/theme": "workspace:*",
     "@limonergy-ui/utils": "workspace:*",
-    "limonergy-ui": "workspace:*",
     "@popperjs/core": "^2.11.8",
     "async-validator": "^4.2.5",
+    "limonergy-ui": "workspace:*",
     "lodash-es": "^4.17.21",
     "vue": "^3.4.19"
   }
