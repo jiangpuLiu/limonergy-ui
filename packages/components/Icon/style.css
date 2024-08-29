@@ -1,0 +1,36 @@
+.er-icon {
+    --er-icon-color: inherit;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    fill: currentColor;
+    color: var(--er-icon-color);
+    font-size: inherit;
+}
+
+/*@each $val in primary, info, success, warning, danger {*/
+/*    .er-icon--$(val) {*/
+/*    --er-icon-color: var(--er-color-$(val));*/
+/*}*/
+/*}*/
+
+.er-icon--primary {
+    --er-icon-color: var(--er-color-primary);
+}
+
+.er-icon--info {
+    --er-icon-color: var(--er-color-info);
+}
+
+.er-icon--success {
+    --er-icon-color: var(--er-color-success);
+}
+
+.er-icon--warning {
+    --er-icon-color: var(--er-color-warning);
+}
+
+.er-icon--danger {
+    --er-icon-color: var(--er-color-danger);
+}
