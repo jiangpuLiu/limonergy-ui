@@ -22,7 +22,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 
 const size = computed(() => ctx?.size ?? props?.size ?? '')
 const type = computed(() => ctx?.type ?? props?.type ?? '')
-const disabled = computed(() => ctx?.disabled ?? props?.disabled ?? false)
+const disabled = computed(() => ctx?.disabled || props?.disabled || false)
 const iconStyle = computed(() => ({marginRight: slots.default ? '6px' : '0'}))
 
 const handleBtnClick = (e: MouseEvent) => emits('click', e)
@@ -30,7 +30,10 @@ const handleBtnClickThrottle = throttle(handleBtnClick, props.throttleDuration, 
 
 
 defineExpose<ButtonInstance>({
-  ref: _ref
+  ref: _ref,
+  disabled,
+  size,
+  type
 })
 </script>
 
