@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type {AlertProps, AlertEmits, AlertInstance} from "./types";
 import {TypeIconMap} from "./types.ts";
-import {computed, ref, useSlots} from "vue";
+import {computed, ref} from "vue";
 import LmIcon from "../Icon/Icon.vue";
 
 defineOptions({
@@ -16,12 +16,12 @@ const props = withDefaults(defineProps<AlertProps>(), {
 
 const emits = defineEmits<AlertEmits>()
 
-const slots = useSlots()
+const visible = ref(true)
+const slots = defineSlots()
 
 const iconName = computed(() => TypeIconMap[props.type] ?? "circle-info")
 const withDescription = computed(() => props.description || slots.default)
 
-const visible = ref(true)
 
 const close = () => {
   visible.value = false

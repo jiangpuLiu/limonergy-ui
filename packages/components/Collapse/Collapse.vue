@@ -3,7 +3,7 @@ import type {CollapseEmits, CollapseProps, CollapseItemName} from "./types.ts";
 import {ref, watch, provide, watchEffect} from "vue";
 import {COLLAPSE_CTX_KEY} from "./constants.ts";
 import {each} from "lodash-es";
-import {debugWarn} from "@limonergy-ui/utils/error.ts";
+import {debugWarn} from "@limonergy-ui/utils";
 
 const COMP_NAME = 'LmCollapseItem' as const
 
@@ -14,13 +14,6 @@ defineOptions({
 const props = defineProps<CollapseProps>()
 const emits = defineEmits<CollapseEmits>()
 const activeNames = ref(props.modelValue)
-
-
-watchEffect(() => {
-  if (props.accordion && activeNames.value.length > 1) {
-    debugWarn(COMP_NAME,'accordion is true, but modelValue has more than one active name')
-  }
-})
 
 function handleItemClick(item: CollapseItemName) {
   let _activeNames = [...activeNames.value]
@@ -41,12 +34,17 @@ function handleItemClick(item: CollapseItemName) {
   updateActiveNames(_activeNames)
 }
 
-function updateActiveNames(val: CollapseItemName[]) {
-  activeNames.value = val;
-  each(["update:modelValue", "change"], (e) =>
-      emits(e as "update:modelValue" & "change", val)
-  );
+function updateActiveNames(newNames: CollapseItemName[]) {
+  activeNames.value = newNames;
+  emits("update:modelValue", newNames);
+  emits("change", newNames);
 }
+
+watchEffect(() => {
+  if (props.accordion && activeNames.value.length > 1) {
+    debugWarn(COMP_NAME,'accordion is true, but modelValue has more than one active name')
+  }
+})
 
 watch(
     () => props.modelValue,
