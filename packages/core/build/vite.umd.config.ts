@@ -4,10 +4,10 @@ import {resolve} from 'path'
 import {compression} from 'vite-plugin-compression2'
 import shell from 'shelljs'
 import {defer, delay} from "lodash-es";
-import hooks from './hooksPlugin.ts'
 import terser from "@rollup/plugin-terser";
 import {visualizer} from "rollup-plugin-visualizer";
-import {readFile} from "node:fs";
+import {readFile} from "fs";
+import { hooksPlugin as hooks } from "@limonergy-ui/vite-plugins"
 
 const TRY_MOVE_STYLES_DELAY = 800 as const
 // 环境

@@ -4,9 +4,11 @@ import {
     throwError,
     withInstall,
     makeInstall,
-} from "../";
+    isObject,
+    isHasProperty
+} from "../index.ts";
 
-describe("utils/index", () => {
+describe("utils/src/index", () => {
     it ('debugWarn should be exported', () => {
         expect(debugWarn).toBeDefined()
     })
@@ -22,4 +24,18 @@ describe("utils/index", () => {
     it ('makeInstall should be exported', () => {
         expect(makeInstall).toBeDefined()
     })
+
+    it ('isObject should be exported', () => {
+        expect(isObject).toBeDefined()
+    })
+
+    it ('isHasProperty should be exported', () => {
+        expect(isHasProperty).toBeDefined()
+    })
 })
+
+// describe("utils/index", () => {
+//     it ('utils-index should be exported', () => {
+//         expect(withInstall).toBeDefined()
+//     })
+// })

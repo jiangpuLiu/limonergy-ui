@@ -24,4 +24,5 @@ export enum TypeIconMap {
     success = "check-circle",
     warning = "circle-exclamation",
     error = "circle-xmark",
+    danger = "circle-xmark",
 }
