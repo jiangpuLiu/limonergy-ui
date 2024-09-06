@@ -1,5 +1,5 @@
 export function isObject(value: any): boolean {
-    return value !== null && typeof value === 'object' && !Array.isArray(value);
+  return value !== null && typeof value === 'object' && !Array.isArray(value)
 }
 
 /**
@@ -8,5 +8,5 @@ export function isObject(value: any): boolean {
  * @param key: 属性名
  */
 export function isHasProperty(obj: any, key: string): boolean {
-    return isObject(obj) && Object.prototype.hasOwnProperty.call(obj, key);
+  return isObject(obj) && Object.prototype.hasOwnProperty.call(obj, key)
 }

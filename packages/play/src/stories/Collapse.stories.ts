@@ -1,28 +1,28 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
-import { LmCollapse, LmCollapseItem } from "limonergy-ui";
+import type { Meta, StoryObj } from '@storybook/vue3'
+import { LmCollapse, LmCollapseItem } from 'limonergy-ui'
 import 'limonergy-ui/dist/theme/Collapse.css'
 
-type Story = StoryObj<typeof LmCollapse>;
+type Story = StoryObj<typeof LmCollapse>
 
 const meta: Meta<typeof LmCollapse> = {
-    title: "Example/Collapse",
-    component: LmCollapse,
-    subcomponents: { LmCollapseItem },
-    tags: ["autodocs"],
-};
+  title: 'Example/Collapse',
+  component: LmCollapse,
+  subcomponents: { LmCollapseItem },
+  tags: ['autodocs'],
+}
 
 export const Default: Story = {
-    render: (args) => ({
-        components: {
-            LmCollapse,
-            LmCollapseItem,
-        },
-        setup() {
-            return {
-                args,
-            };
-        },
-        template: `
+  render: (args) => ({
+    components: {
+      LmCollapse,
+      LmCollapseItem,
+    },
+    setup() {
+      return {
+        args,
+      }
+    },
+    template: `
     <lm-collapse v-bind="args">
       <lm-collapse-item name="a" title="Title a">
         <div>this is content a</div>
@@ -35,11 +35,11 @@ export const Default: Story = {
       </lm-collapse-item>
     </lm-collapse>
     `,
-    }),
-    args: {
-        accordion: true,
-        modelValue: ["a"],
-    },
-};
+  }),
+  args: {
+    accordion: true,
+    modelValue: ['a'],
+  },
+}
 
-export default meta;
+export default meta

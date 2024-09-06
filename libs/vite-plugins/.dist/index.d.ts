@@ -1,3 +1,3 @@
-import { default as hooksPlugin } from './hooksPlugin';
+import { default as hooksPlugin } from './hooksPlugin'
 
-export { hooksPlugin };
+export { hooksPlugin }

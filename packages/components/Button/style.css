@@ -1,6 +1,7 @@
 .er-button-group {
     --er-button-group-border-color: var(--er-border-color-lighter);
 }
+
 .er-button {
     --er-button-font-weight: var(--er-font-weight-primary);
     --er-button-border-color: var(--er-border-color);
@@ -21,60 +22,67 @@
 
 .er-button {
     position: relative;
+    box-sizing: border-box;
     display: inline-flex;
-    justify-content: center;
     align-items: center;
-    line-height: 1;
+    justify-content: center;
     height: 32px;
-    white-space: nowrap;
-    cursor: pointer;
+    padding: 8px 15px;
+    font-size: var(--er-font-size-base);
+    font-weight: var(--er-button-font-weight);
+    line-height: 1;
     color: var(--er-button-text-color);
     text-align: center;
-    box-sizing: border-box;
-    outline: none;
-    transition: 0.1s;
-    font-weight: var(--er-button-font-weight);
-    user-select: none;
+    white-space: nowrap;
     vertical-align: middle;
     -webkit-appearance: none;
+    cursor: pointer;
+    user-select: none;
     background-color: var(--er-button-bg-color);
     border: var(--er-border);
     border-color: var(--er-button-border-color);
-    padding: 8px 15px;
-    font-size: var(--er-font-size-base);
     border-radius: var(--er-border-radius-base);
+    outline: none;
+    transition: 0.1s;
+
     & + & {
         margin-left: 12px;
     }
+
     &:hover,
     &:focus {
         color: var(--er-button-hover-text-color);
-        border-color: var(--er-button-hover-border-color);
         background-color: var(--er-button-hover-bg-color);
+        border-color: var(--er-button-hover-border-color);
         outline: none;
     }
+
     &:active {
         color: var(--er-button-active-text-color);
-        border-color: var(--er-button-active-border-color);
         background-color: var(--er-button-active-bg-color);
+        border-color: var(--er-button-active-border-color);
         outline: none;
     }
-    /*plain*/
+
+    /* plain */
     &.is-plain {
         --er-button-hover-text-color: var(--er-color-primary);
         --er-button-hover-bg-color: var(--er-fill-color-blank);
         --er-button-hover-border-color: var(--er-color-primary);
     }
-    /*round*/
+
+    /* round */
     &.is-round {
         border-radius: var(--er-border-radius-round);
     }
-    /*circle*/
+
+    /* circle */
     &.is-circle {
-        border-radius: 50%;
         padding: 8px;
+        border-radius: 50%;
     }
-    /*disabled*/
+
+    /* disabled */
     &.is-loading,
     &.is-disabled,
     &.is-disabled:hover,
@@ -84,45 +92,74 @@
     &[disabled]:focus {
         color: var(--er-button-disabled-text-color);
         cursor: not-allowed;
-        background-image: none;
         background-color: var(--er-button-disabled-bg-color);
+        background-image: none;
         border-color: var(--er-button-disabled-border-color);
     }
+
     [class*='er-icon'] {
         width: 1em;
         height: 1em;
     }
 }
-/*@each $val in primary, success, warning, info, danger {*/
-/*    .er-button--$(val) {*/
-/*    --er-button-text-color: var(--er-color-white);*/
-/*    --er-button-bg-color: var(--er-color-$(val));*/
-/*    --er-button-border-color: var(--er-color-$(val));*/
-/*    --er-button-outline-color: var(--er-color-$(val)-light-5);*/
-/*    --er-button-active-color: var(--er-color-$(val)-dark-2);*/
-/*    --er-button-hover-text-color: var(--er-color-white);*/
-/*    --er-button-hover-bg-color: var(--er-color-$(val)-light-3);*/
-/*    --er-button-hover-border-color: var(--er-color-$(val)-light-3);*/
-/*    --er-button-active-bg-color: var(--er-color-$(val)-dark-2);*/
-/*    --er-button-active-border-color: var(--er-color-$(val)-dark-2);*/
-/*    --er-button-disabled-text-color: var(--er-color-white);*/
-/*    --er-button-disabled-bg-color: var(--er-color-$(val)-light-5);*/
-/*    --er-button-disabled-border-color: var(--er-color-$(val)-light-5);*/
-/*}*/
-/*    .er-button--$(val).is-plain {*/
-/*    --er-button-text-color: var(--er-color-$(val));*/
-/*    --er-button-bg-color: var(--er-color-$(val)-light-9);*/
-/*    --er-button-border-color: var(--er-color-$(val)-light-5);*/
-/*    --er-button-hover-text-color: var(--er-color-white);*/
-/*    --er-button-hover-bg-color: var(--er-color-$(val));*/
-/*    --er-button-hover-border-color: var(--er-color-$(val));*/
-/*    --er-button-active-text-color: var(--er-color-white);*/
 
-/*    --er-button-disabled-text-color: var(--er-color-$(val)-light-5);*/
-/*    --er-button-disabled-bg-color: var(--er-color-$(val)-light-9);*/
-/*    --er-button-disabled-border-color: var(--er-color-$(val)-light-8);*/
-/*}*/
-/*}*/
+/* @each $val in primary, success, warning, info, danger { */
+
+/*    .er-button--$(val) { */
+
+/*    --er-button-text-color: var(--er-color-white); */
+
+/*    --er-button-bg-color: var(--er-color-$(val)); */
+
+/*    --er-button-border-color: var(--er-color-$(val)); */
+
+/*    --er-button-outline-color: var(--er-color-$(val)-light-5); */
+
+/*    --er-button-active-color: var(--er-color-$(val)-dark-2); */
+
+/*    --er-button-hover-text-color: var(--er-color-white); */
+
+/*    --er-button-hover-bg-color: var(--er-color-$(val)-light-3); */
+
+/*    --er-button-hover-border-color: var(--er-color-$(val)-light-3); */
+
+/*    --er-button-active-bg-color: var(--er-color-$(val)-dark-2); */
+
+/*    --er-button-active-border-color: var(--er-color-$(val)-dark-2); */
+
+/*    --er-button-disabled-text-color: var(--er-color-white); */
+
+/*    --er-button-disabled-bg-color: var(--er-color-$(val)-light-5); */
+
+/*    --er-button-disabled-border-color: var(--er-color-$(val)-light-5); */
+
+/* } */
+
+/*    .er-button--$(val).is-plain { */
+
+/*    --er-button-text-color: var(--er-color-$(val)); */
+
+/*    --er-button-bg-color: var(--er-color-$(val)-light-9); */
+
+/*    --er-button-border-color: var(--er-color-$(val)-light-5); */
+
+/*    --er-button-hover-text-color: var(--er-color-white); */
+
+/*    --er-button-hover-bg-color: var(--er-color-$(val)); */
+
+/*    --er-button-hover-border-color: var(--er-color-$(val)); */
+
+/*    --er-button-active-text-color: var(--er-color-white); */
+
+/*    --er-button-disabled-text-color: var(--er-color-$(val)-light-5); */
+
+/*    --er-button-disabled-bg-color: var(--er-color-$(val)-light-9); */
+
+/*    --er-button-disabled-border-color: var(--er-color-$(val)-light-8); */
+
+/* } */
+
+/* } */
 
 /* Primary 按钮样式 */
 .er-button--primary {
@@ -140,6 +177,7 @@
     --er-button-disabled-bg-color: var(--er-color-primary-light-5);
     --er-button-disabled-border-color: var(--er-color-primary-light-5);
 }
+
 .er-button--primary.is-plain {
     --er-button-text-color: var(--er-color-primary);
     --er-button-bg-color: var(--er-color-primary-light-9);
@@ -169,6 +207,7 @@
     --er-button-disabled-bg-color: var(--er-color-success-light-5);
     --er-button-disabled-border-color: var(--er-color-success-light-5);
 }
+
 .er-button--success.is-plain {
     --er-button-text-color: var(--er-color-success);
     --er-button-bg-color: var(--er-color-success-light-9);
@@ -198,6 +237,7 @@
     --er-button-disabled-bg-color: var(--er-color-warning-light-5);
     --er-button-disabled-border-color: var(--er-color-warning-light-5);
 }
+
 .er-button--warning.is-plain {
     --er-button-text-color: var(--er-color-warning);
     --er-button-bg-color: var(--er-color-warning-light-9);
@@ -227,6 +267,7 @@
     --er-button-disabled-bg-color: var(--er-color-info-light-5);
     --er-button-disabled-border-color: var(--er-color-info-light-5);
 }
+
 .er-button--info.is-plain {
     --er-button-text-color: var(--er-color-info);
     --er-button-bg-color: var(--er-color-info-light-9);
@@ -247,27 +288,33 @@
 
 .er-button--large {
     --er-button-size: 40px;
+
     height: var(--er-button-size);
     padding: 12px 19px;
     font-size: var(--er-font-size-base);
     border-radius: var(--er-border-radius-base);
-    /*circle*/
+
+    /* circle */
     &.is-circle {
-        border-radius: 50%;
         padding: 12px;
+        border-radius: 50%;
     }
 }
+
 .er-button--small {
     --er-button-size: 24px;
+
     height: var(--er-button-size);
     padding: 5px 11px;
     font-size: 12px;
     border-radius: calc(var(--er-border-radius-base) - 1px);
-    /*circle*/
+
+    /* circle */
     &.is-circle {
-        border-radius: 50%;
         padding: 5px;
+        border-radius: 50%;
     }
+
     [class*='er-icon'] {
         width: 12px;
         height: 12px;
@@ -281,34 +328,36 @@
     &::after {
         clear: both;
     }
-    & > :deep(.er-button){
-        float: left;
+
+    & > :deep(.er-button) {
         position: relative;
+        float: left;
         margin-left: 0;
-        &:first-child{
+
+        &:first-child {
+            border-right-color: var(--er-button-group-border-color);
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
-            border-right-color: var(--er-button-group-border-color);
         }
-        &:last-child{
+
+        &:last-child {
+            border-left-color: var(--er-button-group-border-color);
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
-            border-left-color: var(--er-button-group-border-color);
         }
-        &:not(:first-child):not(:last-child) {
-            border-radius: 0;
 
-            border-left-color: var(--er-button-group-border-color);
+        &:not(:first-child, :last-child) {
             border-right-color: var(--er-button-group-border-color);
+            border-left-color: var(--er-button-group-border-color);
+            border-radius: 0;
         }
+
         &:not(:last-child) {
             margin-right: -1px;
         }
+
         &:first-child:last-child {
-            border-top-right-radius: var(--er-border-radius-base);
-            border-bottom-right-radius: var(--er-border-radius-base);
-            border-top-left-radius: var(--er-border-radius-base);
-            border-bottom-left-radius: var(--er-border-radius-base);
+            border-radius: var(--er-border-radius-base) var(--er-border-radius-base) var(--er-border-radius-base) var(--er-border-radius-base);
 
             &.is-round {
                 border-radius: var(--er-border-radius-round);

@@ -1,57 +1,56 @@
 <script setup lang="ts">
-import {computed, ref, inject} from "vue";
-import type {ButtonProps, ButtonEmits, ButtonInstance} from "./types.ts";
-import {BUTTON_GROUP_CTX_KEY} from "./constants.ts";
-import {throttle} from 'lodash-es'
-import LmIcon from "../Icon/Icon.vue";
+import { computed, ref, inject } from 'vue'
+import type { ButtonProps, ButtonEmits, ButtonInstance } from './types.ts'
+import { BUTTON_GROUP_CTX_KEY } from './constants.ts'
+import { throttle } from 'lodash-es'
+import LmIcon from '../Icon/Icon.vue'
 
 defineOptions({
-  name: 'LmButton'
+  name: 'LmButton',
 })
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   tag: 'button',
   nativeType: 'button',
   useThrottle: true,
-  throttleDuration: 300
+  throttleDuration: 300,
 })
 const emits = defineEmits<ButtonEmits>()
 
-const slots = defineSlots();
-const ctx = inject(BUTTON_GROUP_CTX_KEY, void 0);
-const _ref = ref<HTMLButtonElement>();
-const size = computed(() => ctx?.size ?? props?.size ?? "");
-const type = computed(() => ctx?.type ?? props?.type ?? "");
-const disabled = computed(() => ctx?.disabled || props?.disabled || false);
+const slots = defineSlots()
+const ctx = inject(BUTTON_GROUP_CTX_KEY, void 0)
+const _ref = ref<HTMLButtonElement>()
+const size = computed(() => ctx?.size ?? props?.size ?? '')
+const type = computed(() => ctx?.type ?? props?.type ?? '')
+const disabled = computed(() => ctx?.disabled || props?.disabled || false)
 const iconStyle = computed(() => ({
-  marginRight: slots.default ? "6px" : "0px",
-}));
+  marginRight: slots.default ? '6px' : '0px',
+}))
 
-const handleBtnClick = (e: MouseEvent) => emits("click", e);
+const handleBtnClick = (e: MouseEvent) => emits('click', e)
 const handleBtnClickThrottle = throttle(
-    handleBtnClick,
-    props.throttleDuration,
-    { trailing: false }
-);
-
+  handleBtnClick,
+  props.throttleDuration,
+  { trailing: false },
+)
 
 defineExpose<ButtonInstance>({
   ref: _ref,
   disabled,
   size,
-  type
+  type,
 })
 </script>
 
 <template>
   <component
-      ref="_ref"
-      class="er-button"
-      :is="tag"
-      :autofocus="autofocus"
-      :type="tag === 'button' ? nativeType : void 0"
-      :disabled="disabled || loading ? true : void 0"
-      :class="{
+    ref="_ref"
+    class="er-button"
+    :is="tag"
+    :autofocus="autofocus"
+    :type="tag === 'button' ? nativeType : void 0"
+    :disabled="disabled || loading ? true : void 0"
+    :class="{
       [`er-button--${type}`]: type,
       [`er-button--${size}`]: size,
       'is-plain': plain,
@@ -60,7 +59,7 @@ defineExpose<ButtonInstance>({
       'is-disabled': disabled,
       'is-loading': loading,
     }"
-      @click="
+    @click="
       (e: MouseEvent) =>
         useThrottle ? handleBtnClickThrottle(e) : handleBtnClick(e)
     "
@@ -68,24 +67,24 @@ defineExpose<ButtonInstance>({
     <template v-if="loading">
       <slot name="loading">
         <lm-icon
-            class="loading-icon"
-            :icon="loadingIcon ?? 'spinner'"
-            :style="iconStyle"
-            size="1x"
-            spin
+          class="loading-icon"
+          :icon="loadingIcon ?? 'spinner'"
+          :style="iconStyle"
+          size="1x"
+          spin
         />
       </slot>
     </template>
     <lm-icon
-        v-if="icon && !loading"
-        :icon="icon"
-        :style="iconStyle"
-        size="1x"
+      v-if="icon && !loading"
+      :icon="icon"
+      :style="iconStyle"
+      size="1x"
     />
     <slot></slot>
   </component>
 </template>
 
 <style scoped>
-@import "./style.css";
+@import './style.css';
 </style>

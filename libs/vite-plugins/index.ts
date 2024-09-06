@@ -1,3 +1,3 @@
-import hooksPlugin from "./hooksPlugin";
+import hooksPlugin from './hooksPlugin'
 
-export {hooksPlugin}
+export { hooksPlugin }

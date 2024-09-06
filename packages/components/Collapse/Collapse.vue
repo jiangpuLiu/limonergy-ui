@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type {CollapseEmits, CollapseProps, CollapseItemName} from "./types.ts";
-import {ref, watch, provide, watchEffect} from "vue";
-import {COLLAPSE_CTX_KEY} from "./constants.ts";
-import {debugWarn} from "@limonergy-ui/utils";
+import type { CollapseEmits, CollapseProps, CollapseItemName } from './types.ts'
+import { ref, watch, provide, watchEffect } from 'vue'
+import { COLLAPSE_CTX_KEY } from './constants.ts'
+import { debugWarn } from '@limonergy-ui/utils'
 
 const COMP_NAME = 'LmCollapseItem' as const
 
 defineOptions({
-  name: COMP_NAME
+  name: COMP_NAME,
 })
 
 const props = defineProps<CollapseProps>()
@@ -19,7 +19,7 @@ function handleItemClick(item: CollapseItemName) {
 
   // 手风琴模式
   if (props.accordion) {
-    _activeNames = [_activeNames[0] === item ? "" : item]
+    _activeNames = [_activeNames[0] === item ? '' : item]
     updateActiveNames(_activeNames)
     return
   }
@@ -34,28 +34,29 @@ function handleItemClick(item: CollapseItemName) {
 }
 
 function updateActiveNames(newNames: CollapseItemName[]) {
-  activeNames.value = newNames;
-  emits("update:modelValue", newNames);
-  emits("change", newNames);
+  activeNames.value = newNames
+  emits('update:modelValue', newNames)
+  emits('change', newNames)
 }
 
 watchEffect(() => {
   if (props.accordion && activeNames.value.length > 1) {
-    debugWarn(COMP_NAME,'accordion is true, but modelValue has more than one active name')
+    debugWarn(
+      COMP_NAME,
+      'accordion is true, but modelValue has more than one active name',
+    )
   }
 })
 
 watch(
-    () => props.modelValue,
-    (newNames) => updateActiveNames(newNames)
+  () => props.modelValue,
+  (newNames) => updateActiveNames(newNames),
 )
 
-provide(COLLAPSE_CTX_KEY,{
-      activeNames,
-      handleItemClick
-    }
-)
-
+provide(COLLAPSE_CTX_KEY, {
+  activeNames,
+  handleItemClick,
+})
 </script>
 
 <template>

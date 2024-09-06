@@ -5,8 +5,9 @@
   "main": "index.ts",
   "type": "module",
   "scripts": {
-    "test": "cross-env NODE_ENV=test pnpm --filter @limonergy-ui/hooks build && pnpm --filter @limonergy-ui/utils build && vitest --run --coverage",
-    "test:watch": "cross-env NODE_ENV=test pnpm --filter @limonergy-ui/hooks build && pnpm --filter @limonergy-ui/utils build && vitest --coverage"
+    "build:dependencies": "pnpm --filter @limonergy-ui/hooks build && pnpm --filter @limonergy-ui/utils build",
+    "test": "cross-env NODE_ENV=test pnpm run build:dependencies && vitest --run --coverage",
+    "test:watch": "cross-env NODE_ENV=test pnpm run build:dependencies && vitest --coverage"
   },
   "keywords": [],
   "author": "",

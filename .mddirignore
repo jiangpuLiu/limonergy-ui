@@ -1,0 +1,4 @@
+# .mddirignore
+node_modules/
+dist/
+coverage/

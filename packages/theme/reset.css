@@ -1,8 +1,8 @@
 /** reset.css */
 body {
     font-family: var(--er-font-family);
-    font-weight: 400;
     font-size: var(--er-font-size-base);
+    font-weight: 400;
     line-height: calc(var(--er-font-size-base) * 1.2);
     color: var(--er-text-color-primary);
     -webkit-font-smoothing: antialiased;
@@ -30,8 +30,8 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--er-text-color-regular);
     font-weight: inherit;
+    color: var(--er-text-color-regular);
 
     &:first-child {
         margin-top: 0;

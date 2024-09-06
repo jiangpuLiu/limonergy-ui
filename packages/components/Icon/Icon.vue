@@ -1,32 +1,30 @@
 <script setup lang="ts">
 import type { IconProps } from './types'
-import { FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
-import {omit} from 'lodash-es'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { omit } from 'lodash-es'
 import { computed } from 'vue'
 
 defineOptions({
   name: 'LmIcon',
-  inheritAttrs: false
+  inheritAttrs: false,
 })
 
 const props = defineProps<IconProps>()
 const filterProps = computed(() => omit(props, ['type', 'color']))
-const customStyles = computed(() => ({color: props.color ?? void 0}))
-
+const customStyles = computed(() => ({ color: props.color ?? void 0 }))
 </script>
 
 <template>
   <i
-      class="er-icon"
-      :class="[`er-icon-${props.type}`]"
-      :style="customStyles"
-      v-bind="$attrs"
+    class="er-icon"
+    :class="[`er-icon-${props.type}`]"
+    :style="customStyles"
+    v-bind="$attrs"
   >
     <font-awesome-icon v-bind="filterProps" />
   </i>
-
 </template>
 
 <style scoped>
-@import "./style.css";
+@import './style.css';
 </style>

@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "Limonergy-Ui"
-  text: "Limonergy-Ui 组件库"
+  name: 'Limonergy-Ui'
+  text: 'Limonergy-Ui 组件库'
   tagline: My great project tagline
   actions:
     - theme: brand
@@ -22,4 +22,3 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-

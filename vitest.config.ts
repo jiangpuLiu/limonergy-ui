@@ -1,8 +1,8 @@
 /// <reference types="vitest" />
-import { defineConfig } from "vitest/config";
-import { resolve } from "path";
-import vue from "@vitejs/plugin-vue";
-import vueJsx from "@vitejs/plugin-vue-jsx";
+import { defineConfig } from 'vitest/config'
+import { resolve } from 'path'
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,13 +14,13 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    environment: "jsdom",
+    environment: 'jsdom',
     exclude: [
-      "**/node_modules/**",
-      "**/dist/**",
-      "**/true/coverage/**",
-      "**/coverage/**",
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/true/coverage/**',
+      '**/coverage/**',
     ],
-    setupFiles: [resolve(__dirname, "./vitest.setup.ts")],
+    setupFiles: [resolve(__dirname, './vitest.setup.ts')],
   },
-});
+})

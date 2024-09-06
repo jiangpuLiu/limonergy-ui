@@ -1,14 +1,18 @@
 <script setup lang="ts">
-import type { _TooltipProps, TooltipEmits, TooltipInstance, EventListenerMap } from './types'
-import {computed, ref, watch, onMounted, type Ref, watchEffect} from 'vue'
-import {bind, debounce, type DebouncedFunc} from "lodash-es";
-import {createPopper, type Instance} from "@popperjs/core";
-import {useClickOutside} from "@limonergy-ui/hooks";
-import useEvenstToTiggerNode from "./useEventsToTiggerNode.ts";
-
+import type {
+  _TooltipProps,
+  TooltipEmits,
+  TooltipInstance,
+  EventListenerMap,
+} from './types'
+import { computed, ref, watch, onMounted, type Ref, watchEffect } from 'vue'
+import { bind, debounce, type DebouncedFunc } from 'lodash-es'
+import { createPopper, type Instance } from '@popperjs/core'
+import { useClickOutside } from '@limonergy-ui/hooks'
+import useEvenstToTiggerNode from './useEventsToTiggerNode.ts'
 
 defineOptions({
-  name: 'LmTooltip'
+  name: 'LmTooltip',
 })
 
 const props = withDefaults(defineProps<_TooltipProps>(), {
@@ -21,21 +25,19 @@ const props = withDefaults(defineProps<_TooltipProps>(), {
 const emits = defineEmits<TooltipEmits>()
 
 const visible = ref(false)
-const events:Ref<EventListenerMap> = ref({})
-const outerEvents:Ref<EventListenerMap> = ref({})
-const dropdownEvents:Ref<EventListenerMap> = ref({})
+const events: Ref<EventListenerMap> = ref({})
+const outerEvents: Ref<EventListenerMap> = ref({})
+const dropdownEvents: Ref<EventListenerMap> = ref({})
 
 const containerNode = ref<HTMLElement>()
 const _triggerNode = ref<HTMLElement>()
 const popperNode = ref<HTMLElement>()
 
 const triggerNode = computed(() => {
-   if (props.virtualTriggering) {
-     return (
-         (props.virtualRef as HTMLElement) ?? _triggerNode.value
-     )
-   }
-   return _triggerNode.value as HTMLElement
+  if (props.virtualTriggering) {
+    return (props.virtualRef as HTMLElement) ?? _triggerNode.value
+  }
+  return _triggerNode.value as HTMLElement
 })
 
 const popperOptions = computed(() => ({
@@ -44,35 +46,39 @@ const popperOptions = computed(() => ({
     {
       name: 'offset',
       options: {
-        offset: [0, 9]
-      }
-    }
+        offset: [0, 9],
+      },
+    },
   ],
-  ...props.popperOptions
+  ...props.popperOptions,
 }))
 
 let openDebounce: DebouncedFunc<() => void> | void
 let closeDebounce: DebouncedFunc<() => void> | void
 let popperInstance: null | Instance
 
-const openDelay = computed(() => props.trigger === 'hover' ? props.showTimeout : 0)
-const closeDelay = computed(() => props.trigger === 'hover' ? props.hideTimeout : 0)
+const openDelay = computed(() =>
+  props.trigger === 'hover' ? props.showTimeout : 0,
+)
+const closeDelay = computed(() =>
+  props.trigger === 'hover' ? props.hideTimeout : 0,
+)
 
-const triggerStrategyMap: Map<string, () => void> = new Map();
-triggerStrategyMap.set("hover", () => {
-  events.value["mouseenter"] = openFinal;
-  outerEvents.value["mouseleave"] = closeFinal;
-  dropdownEvents.value["mouseenter"] = openFinal;
-});
-triggerStrategyMap.set("click", () => {
-  events.value["click"] = togglePopper;
-});
-triggerStrategyMap.set("contextmenu", () => {
-  events.value["contextmenu"] = (e) => {
-    e.preventDefault();
-    openFinal();
-  };
-});
+const triggerStrategyMap: Map<string, () => void> = new Map()
+triggerStrategyMap.set('hover', () => {
+  events.value['mouseenter'] = openFinal
+  outerEvents.value['mouseleave'] = closeFinal
+  dropdownEvents.value['mouseenter'] = openFinal
+})
+triggerStrategyMap.set('click', () => {
+  events.value['click'] = togglePopper
+})
+triggerStrategyMap.set('contextmenu', () => {
+  events.value['contextmenu'] = (e) => {
+    e.preventDefault()
+    openFinal()
+  }
+})
 
 function openFinal() {
   closeDebounce?.cancel()
@@ -85,7 +91,7 @@ function closeFinal() {
 }
 
 function setVisible(val: boolean) {
-  if (props.disabled) return;
+  if (props.disabled) return
   visible.value = val
   emits('visible-change', val)
 }
@@ -95,12 +101,10 @@ function togglePopper() {
 }
 
 function attachEvents() {
-  if (props.disabled || props.manual) return;
+  if (props.disabled || props.manual) return
 
-  triggerStrategyMap.get(props.trigger)?.();
+  triggerStrategyMap.get(props.trigger)?.()
 }
-
-
 
 function destroyPopperInstance() {
   popperInstance?.destroy()
@@ -120,28 +124,42 @@ const hide: TooltipInstance['hide'] = () => {
   setVisible(false)
 }
 
-watch(visible, (val) => {
-  if (!val) return
-  if (_triggerNode.value && popperNode.value) {
-    popperInstance = createPopper(_triggerNode.value, popperNode.value, popperOptions.value)
-  }
-}, {flush: 'post'})
+watch(
+  visible,
+  (val) => {
+    if (!val) return
+    if (_triggerNode.value && popperNode.value) {
+      popperInstance = createPopper(
+        _triggerNode.value,
+        popperNode.value,
+        popperOptions.value,
+      )
+    }
+  },
+  { flush: 'post' },
+)
 
-watch(() => props.manual, (isManual) => {
-  if (isManual) {
-   resetEvents()
-    return
-  }
-  attachEvents()
-})
+watch(
+  () => props.manual,
+  (isManual) => {
+    if (isManual) {
+      resetEvents()
+      return
+    }
+    attachEvents()
+  },
+)
 
-watch(() => props.trigger, () => {
-  // if (val === oldVal) return
-  openDebounce?.cancel()
-  visible.value = false
-  emits('visible-change', false)
-  resetEvents()
-})
+watch(
+  () => props.trigger,
+  () => {
+    // if (val === oldVal) return
+    openDebounce?.cancel()
+    visible.value = false
+    emits('visible-change', false)
+    resetEvents()
+  },
+)
 
 watchEffect(() => {
   if (!props.manual) {
@@ -166,23 +184,19 @@ onMounted(() => {
   destroyPopperInstance()
 })
 
-
 defineExpose<TooltipInstance>({
   show,
-  hide
+  hide,
 })
-
-
-
 </script>
 
 <template>
   <div class="er-tooltip" ref="containerNode" v-on="outerEvents">
     <div
-        class="er-tooltip__trigger"
-        ref="_triggerNode"
-        v-on="events"
-        v-if="!virtualTriggering"
+      class="er-tooltip__trigger"
+      ref="_triggerNode"
+      v-on="events"
+      v-if="!virtualTriggering"
     >
       <slot></slot>
     </div>
@@ -190,10 +204,10 @@ defineExpose<TooltipInstance>({
 
     <transition :name="transition" @after-leave="destroyPopperInstance">
       <div
-          class="er-tooltip__popper"
-          ref="popperNode"
-          v-on="dropdownEvents"
-          v-if="visible"
+        class="er-tooltip__popper"
+        ref="popperNode"
+        v-on="dropdownEvents"
+        v-if="visible"
       >
         <slot name="content">
           {{ content }}
@@ -205,5 +219,5 @@ defineExpose<TooltipInstance>({
 </template>
 
 <style scoped>
-@import "./style.css";
+@import './style.css';
 </style>

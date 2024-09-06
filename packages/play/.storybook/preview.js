@@ -1,5 +1,5 @@
 /** @type { import('@storybook/vue3').Preview } */
-import "limonergy-ui/dist/theme/index.css"
+import 'limonergy-ui/dist/theme/index.css'
 const preview = {
   parameters: {
     controls: {
@@ -9,6 +9,6 @@ const preview = {
       },
     },
   },
-};
+}
 
-export default preview;
+export default preview

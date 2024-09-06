@@ -2,18 +2,18 @@
 
 :root {
     /* colors */
-    --er-color-white: #ffffff;
-    --er-color-black: #000000;
-    /*--colors: (primary: #409eff, success: #67c23a, warning: #e6a23c, danger: #f56c6c, info: #909399);*/
+    --er-color-white: #fff;
+    --er-color-black: #000;
+
+    /* --colors: (primary: #409eff, success: #67c23a, warning: #e6a23c, danger: #f56c6c, info: #909399); */
     --er-color-primary: #409eff;
     --er-color-success: #67c23a;
     --er-color-warning: #e6a23c;
     --er-color-danger: #f56c6c;
     --er-color-info: #909399;
-
-    --er-bg-color: #ffffff;
+    --er-bg-color: #fff;
     --er-bg-color-page: #f2f3f5;
-    --er-bg-color-overlay: #ffffff;
+    --er-bg-color-overlay: #fff;
     --er-text-color-primary: #303133;
     --er-text-color-regular: #606266;
     --er-text-color-secondary: #909399;
@@ -31,15 +31,22 @@
     --er-fill-color-extra-light: #fafcff;
     --er-fill-color-dark: #ebedf0;
     --er-fill-color-darker: #e6e8eb;
-    --er-fill-color-blank: #ffffff;
+    --er-fill-color-blank: #fff;
 
-    /*@each $val, $color in var(--colors) {*/
-    /*    --er-color-$(val): $(color);*/
-    /*    @for $i from 3 to 9 {*/
-    /*        --er-color-$(val)-light-$(i): mix(#fff, $(color), 0.$(i));*/
-    /*    }*/
-    /*    --er-color-$(val)-dark-2: mix(#000, $(color), 0.2);*/
-    /*}*/
+    /* @each $val, $color in var(--colors) { */
+
+    /*    --er-color-$(val): $(color); */
+
+    /*    @for $i from 3 to 9 { */
+
+    /*        --er-color-$(val)-light-$(i): mix(#fff, $(color), 0.$(i)); */
+
+    /*    } */
+
+    /*    --er-color-$(val)-dark-2: mix(#000, $(color), 0.2); */
+
+    /* } */
+
     /* Primary light and dark variants */
     --er-color-primary-light-3: #8ac7ff; /* mix(#fff, #409eff, 0.3) */
     --er-color-primary-light-4: #a6d4ff; /* mix(#fff, #409eff, 0.4) */
@@ -47,7 +54,7 @@
     --er-color-primary-light-6: #dff0ff; /* mix(#fff, #409eff, 0.6) */
     --er-color-primary-light-7: #ebf7ff; /* mix(#fff, #409eff, 0.7) */
     --er-color-primary-light-8: #f7fdff; /* mix(#fff, #409eff, 0.8) */
-    --er-color-primary-light-9: #ffffff; /* mix(#fff, #409eff, 0.9) */
+    --er-color-primary-light-9: #fff; /* mix(#fff, #409eff, 0.9) */
     --er-color-primary-dark-2: #337ccc;  /* mix(#000, #409eff, 0.2) */
 
     /* Success light and dark variants */
@@ -57,7 +64,7 @@
     --er-color-success-light-6: #e5f5c7; /* mix(#fff, #67c23a, 0.6) */
     --er-color-success-light-7: #f0fadc; /* mix(#fff, #67c23a, 0.7) */
     --er-color-success-light-8: #fafef0; /* mix(#fff, #67c23a, 0.8) */
-    --er-color-success-light-9: #ffffff; /* mix(#fff, #67c23a, 0.9) */
+    --er-color-success-light-9: #fff; /* mix(#fff, #67c23a, 0.9) */
     --er-color-success-dark-2: #53922e;  /* mix(#000, #67c23a, 0.2) */
 
     /* Warning light and dark variants */
@@ -67,7 +74,7 @@
     --er-color-warning-light-6: #fde0d5; /* mix(#fff, #e6a23c, 0.6) */
     --er-color-warning-light-7: #fef1e9; /* mix(#fff, #e6a23c, 0.7) */
     --er-color-warning-light-8: #fff8f0; /* mix(#fff, #e6a23c, 0.8) */
-    --er-color-warning-light-9: #ffffff; /* mix(#fff, #e6a23c, 0.9) */
+    --er-color-warning-light-9: #fff; /* mix(#fff, #e6a23c, 0.9) */
     --er-color-warning-dark-2: #b4802f;  /* mix(#000, #e6a23c, 0.2) */
 
     /* Danger light and dark variants */
@@ -77,7 +84,7 @@
     --er-color-danger-light-6: #fde6e6; /* mix(#fff, #f56c6c, 0.6) */
     --er-color-danger-light-7: #fee3e3; /* mix(#fff, #f56c6c, 0.7) */
     --er-color-danger-light-8: #fff2f2; /* mix(#fff, #f56c6c, 0.8) */
-    --er-color-danger-light-9: #ffffff; /* mix(#fff, #f56c6c, 0.9) */
+    --er-color-danger-light-9: #fff; /* mix(#fff, #f56c6c, 0.9) */
     --er-color-danger-dark-2: #c55858;  /* mix(#000, #f56c6c, 0.2) */
 
     /* Info light and dark variants */
@@ -87,7 +94,7 @@
     --er-color-info-light-6: #f1f1f3; /* mix(#fff, #909399, 0.6) */
     --er-color-info-light-7: #f8f8f9; /* mix(#fff, #909399, 0.7) */
     --er-color-info-light-8: #fdfdfe; /* mix(#fff, #909399, 0.8) */
-    --er-color-info-light-9: #ffffff; /* mix(#fff, #909399, 0.9) */
+    --er-color-info-light-9: #fff; /* mix(#fff, #909399, 0.9) */
     --er-color-info-dark-2: #727278;   /* mix(#000, #909399, 0.2) */
 
 
@@ -104,7 +111,7 @@
     --er-border-radius-round: 20px;
     --er-border-radius-circle: 100%;
 
-    /*font*/
+    /* font */
     --er-font-size-extra-large: 20px;
     --er-font-size-large: 18px;
     --er-font-size-medium: 16px;
@@ -115,12 +122,12 @@
     'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial, sans-serif;
     --er-font-weight-primary: 500;
 
-    /*disabled*/
+    /* disabled */
     --er-disabled-bg-color: var(--er-fill-color-light);
     --er-disabled-text-color: var(--er-text-color-placeholder);
     --er-disabled-border-color: var(--er-border-color-light);
 
-    /*animation*/
+    /* animation */
     --er-transition-duration: 0.4s;
     --er-transition-duration-fast: 0.2s;
 }
