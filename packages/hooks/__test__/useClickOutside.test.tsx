@@ -2,7 +2,7 @@ import {describe, expect, it, vi} from "vitest";
 import {ref, defineComponent} from "vue";
 import {mount} from "@vue/test-utils";
 
-import useClickOutside from "../useClickOustside.ts";
+import useClickOutside from "../src/useClickOustside.ts";
 
 describe("hooks/useClickOutside", () => {
     it('should add "click-outside" listener', async () => {

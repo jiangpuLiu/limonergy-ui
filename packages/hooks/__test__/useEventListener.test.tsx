@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 import { ref, defineComponent } from "vue";
 import { mount } from "@vue/test-utils";
 
-import useEventListener from "../useEventListener";
+import useEventListener from "../src/useEventListener.ts";
 
 describe("hooks/useEventListener", () => {
     it("should add and remove event listener when target is HTMLElement", async () => {

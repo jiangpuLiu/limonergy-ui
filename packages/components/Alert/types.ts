@@ -2,7 +2,7 @@ export type AlertType = 'info' | 'success' | 'warning' | 'error'
 
 export interface AlertProps {
     title?: string,
-    type: AlertType,
+    type?: AlertType,
     description?: string,
     effect?: 'dark' | 'light',
     closable?: boolean,
