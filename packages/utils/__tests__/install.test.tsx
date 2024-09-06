@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import {mount} from "@vue/test-utils";
-import {defineComponent, createApp} from "vue";
-import {withInstall, makeInstall} from "../install.ts";
+import { defineComponent, createApp } from "vue";
+import {withInstall, makeInstall} from "../src/install.ts";
 
 const AppComp = defineComponent({
     setup() {
@@ -22,32 +21,23 @@ const compB = withInstall(defineComponent({
         return () => <div>CompB</div>
     }
 }))
-
 describe('install', () => {
-    it('withInstall should be worked', () => {
-        const wrapper = mount(() => <div id="app"></div>)
+    it('withInstall should be worked without mount', () => {
         const app = createApp(AppComp)
-
-        app.use(compA).use(compB).mount(wrapper.element)
+        app.use(compA)
 
         expect(compA.install).toBeDefined()
-        expect(compB.install).toBeDefined()
-
-
-        expect(wrapper.findComponent(compA)).toBeTruthy()
-        expect(wrapper.findComponent(compB)).toBeTruthy()
+        expect(app._context.components['CompA']).toBeTruthy()
+        expect(app._context.components['CompB']).toBeFalsy()
     })
 
-    it('makeInstall should be worked', () => {
-        const wrapper = mount(() => <div id="app"></div>)
+    it('makeInstall should be worked without mount', () => {
         const app = createApp(AppComp)
-
         const installer = makeInstall([compA, compB])
-        app.use(installer).mount(wrapper.element)
+        app.use(installer)
 
         expect(installer).toBeDefined()
-
-        expect(wrapper.findComponent(compA)).toBeTruthy()
-        expect(wrapper.findComponent(compB)).toBeTruthy()
+        expect(app._context.components['CompA']).toBeTruthy()
+        expect(app._context.components['CompB']).toBeTruthy()
     })
 })

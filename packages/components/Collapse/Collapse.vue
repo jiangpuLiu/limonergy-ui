@@ -2,7 +2,6 @@
 import type {CollapseEmits, CollapseProps, CollapseItemName} from "./types.ts";
 import {ref, watch, provide, watchEffect} from "vue";
 import {COLLAPSE_CTX_KEY} from "./constants.ts";
-import {each} from "lodash-es";
 import {debugWarn} from "@limonergy-ui/utils";
 
 const COMP_NAME = 'LmCollapseItem' as const

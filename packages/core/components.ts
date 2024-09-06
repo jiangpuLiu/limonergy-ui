@@ -5,7 +5,8 @@ import {
     LmButtonGroup,
     LmCollapse,
     LmCollapseItem,
-    LmAlert
+    LmAlert,
+    LmTooltip
 } from "@limonergy-ui/components";
 import type { Plugin } from "vue";
 
@@ -15,5 +16,6 @@ export default [
     LmButtonGroup,
     LmCollapse,
     LmCollapseItem,
-    LmAlert
+    LmAlert,
+    LmTooltip
 ] as Plugin[];

@@ -1,5 +1,5 @@
 import {describe,expect,it,vi} from 'vitest'
-import {debugWarn,throwError} from '../error'
+import {debugWarn,throwError} from '../src/error.ts'
 
 describe('error',()=>{
     it('throwError should work',()=>{

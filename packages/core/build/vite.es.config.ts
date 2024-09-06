@@ -2,13 +2,12 @@ import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import {resolve} from 'path'
 import dts from 'vite-plugin-dts'
-import {readdirSync} from "fs";
+import {readdirSync, readdir} from "fs";
 import {filter, delay, map, defer} from "lodash-es";
 import shell from "shelljs";
-import hooks from "./hooksPlugin.ts";
 import terser from "@rollup/plugin-terser";
-import {readdir} from "node:fs";
 import {visualizer} from "rollup-plugin-visualizer";
+import { hooksPlugin as hooks } from "@limonergy-ui/vite-plugins"
 
 const TRY_MOVE_STYLES_DELAY = 800 as const
 // 环境
@@ -26,9 +25,9 @@ function getDirectoresSync(basePath: string) {
 }
 
 function moveStyle() {
-    readdir('./dist/es/components', err => {
+    readdir('./dist/es/theme', err => {
         if (err) return delay(moveStyle, TRY_MOVE_STYLES_DELAY)
-        defer(() => shell.mv('./dist/es/components', './dist'))
+        defer(() => shell.mv('./dist/es/theme', './dist'))
     })
 }
 
