@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "pnpm --filter @limonergy-ui/play dev",
     "story": "pnpm --filter @limonergy-ui/play storybook",
+    "lint:lint-staged": "lint-staged",
     "docs:dev": "pnpm --filter @limonergy-ui/docs dev",
     "docs:build": "pnpm --filter @limonergy-ui/docs build",
     "test:filter": "cross-env NODE_ENV=test pnpm --filter",
@@ -20,13 +21,17 @@
     "build:dev": "pnpm run build:filter limonergy-ui build:watch",
     "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
     "lint:eslint": "eslint 'packages/**/*.{ts,vue,tsx}' 'libs/**/*.{ts,vue,tsx}' --cache --fix",
-    "lint:style": "stylelint 'packages/**/*.{css,scss,vue}' 'libs/**/*.{css,scss,vue}' --cache --fix"
+    "lint:style": "stylelint 'packages/**/*.{css,scss,vue}' 'libs/**/*.{css,scss,vue}' --cache --fix",
+    "prepare": "husky install",
+    "commitlint": "commitlint --config commitlint.config.cjs -e -V"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/eslint-parser": "^7.21.3",
+    "@commitlint/cli": "17.5.1",
+    "@commitlint/config-conventional": "17.4.4",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/vue-fontawesome": "^3.0.8",
@@ -48,6 +53,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.10.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.10",
     "npm-run-all": "^4.1.5",
     "postcss-color-mix": "^1.1.0",
     "postcss-each": "^1.1.0",
