@@ -23,6 +23,7 @@ function getDirectoresSync(basePath: string) {
   )
 }
 
+// 移动样式文件，更改打包后dist目录结构
 function moveStyle() {
   readdir('./dist/es/theme', (err) => {
     if (err) return delay(moveStyle, TRY_MOVE_STYLES_DELAY)
@@ -33,6 +34,7 @@ function moveStyle() {
 export default defineConfig({
   plugins: [
     vue(),
+    // 生成可视化打包结构文件
     visualizer({
       filename: 'dist/stats.es.html',
     }),
@@ -40,6 +42,7 @@ export default defineConfig({
       tsconfigPath: '../../tsconfig.build.json',
       outDir: 'dist/types',
     }),
+    // 根据打包钩子控制打包前和打包后的目录结构处理
     hooks({
       rmFiles: ['./dist/es', './dist/theme', './dist/types'],
       afterBuild: moveStyle,
@@ -98,6 +101,7 @@ export default defineConfig({
         'async-validator',
       ],
       output: {
+        // 样式打包处理，方便后期可以按需引入
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === 'style.css') return 'index.css'
           if (

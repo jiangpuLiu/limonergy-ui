@@ -18,33 +18,20 @@
     "build-hooks": "pnpm run build:filter @limonergy-ui/hooks build",
     "build-utils": "pnpm run build:filter @limonergy-ui/utils build",
     "build:dev": "pnpm run build:filter limonergy-ui build:watch",
+    "lint": "lint-staged",
     "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
     "lint:eslint": "eslint 'packages/**/*.{ts,vue,tsx}' 'libs/**/*.{ts,vue,tsx}' --cache --fix",
     "lint:style": "stylelint 'packages/**/*.{css,scss,vue}' 'libs/**/*.{css,scss,vue}' --cache --fix",
     "prepare": "husky install",
+    "pnpm": "pnpm i",
     "commitlint": "commitlint --config commitlint.config.cjs -e -V",
-    "lint": "lint-staged"
+    "clean": "run-s clean:node_modules clean:pnpm-cache",
+    "clean:node_modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && rm -f pnpm-lock.yaml",
+    "clean:pnpm-cache": "pnpm store prune"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "lint-staged": {
-    "**/*.{html,vue,ts,js,json,md}": [
-      "prettier --write"
-    ],
-    "packages/**/*.{ts,vue,tsx}": [
-      "eslint --cache --fix --max-warnings=0"
-    ],
-    "libs/**/*.{ts,vue,tsx}": [
-      "eslint --cache --fix --max-warnings=0"
-    ],
-    "packages/**/*.{css,scss,vue}": [
-      "stylelint --cache --fix"
-    ],
-    "libs/**/*.{css,scss,vue}": [
-      "stylelint --cache --fix"
-    ]
-  },
   "devDependencies": {
     "@babel/eslint-parser": "^7.21.3",
     "@commitlint/cli": "17.5.1",
@@ -83,15 +70,12 @@
     "rollup": "^4.18.0",
     "rollup-plugin-visualizer": "^5.12.0",
     "shelljs": "^0.8.5",
-    "stylelint": "^15.4.0",
-    "stylelint-config-prettier": "^9.0.5",
-    "stylelint-config-recess-order": "^4.0.0",
-    "stylelint-config-recommended-scss": "^9.0.1",
-    "stylelint-config-standard": "^32.0.0",
-    "stylelint-config-standard-scss": "^7.0.1",
+    "stylelint": "^16.3.1",
+    "stylelint-config-recess-order": "^5.0.1",
+    "stylelint-config-recommended-scss": "^14.0.0",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-config-standard-vue": "^1.0.0",
-    "stylelint-order": "^6.0.3",
-    "stylelint-scss": "^4.6.0",
     "terser": "^5.31.0",
     "typescript": "^5.4.5",
     "vite": "^5.3.1",

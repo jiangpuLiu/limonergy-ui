@@ -8,8 +8,9 @@
     "build": "vitepress build ./"
   },
   "devDependencies": {
-    "vitepress": "1.1.4",
-    "@vitepress-demo-preview/component": "^2.3.2",
-    "@vitepress-demo-preview/plugin": "^1.2.3"
+    "@vitepress-demo-preview/plugin": "^1.2.3",
+    "vitepress": "1.0.0-rc.44",
+    "vitepress-api-table": "workspace:*",
+    "vitepress-preview-component": "workspace:*"
   }
 }

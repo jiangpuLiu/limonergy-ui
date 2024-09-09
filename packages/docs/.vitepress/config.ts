@@ -4,36 +4,24 @@ import {
   componentPreview,
 } from '@vitepress-demo-preview/plugin'
 
-// https://vitepress.dev/reference/site-config
+import { NavRoutes } from './route/nav'
+import { SidebarRouters } from './route/sidebar'
+
 export default defineConfig({
   title: 'Limonergy-Ui',
   description: 'Limonergy-Ui 组件库',
   base: '/limonergy-ui/',
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' },
-    ],
-
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' },
-        ],
-      },
-    ],
-
+    nav: NavRoutes,
+    sidebar: SidebarRouters,
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+      { icon: 'github', link: 'https://github.com/jiangpuLiu/limonergy-ui' },
     ],
   },
   markdown: {
     config: (md) => {
-      md.use(containerPreview)
-      md.use(componentPreview)
+      md.use(containerPreview as any)
+      md.use(componentPreview as any)
     },
   },
 })

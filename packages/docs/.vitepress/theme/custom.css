@@ -1,0 +1,8 @@
+:root {
+    --vp-layout-max-width: 95vw;
+    --er-text-color-regular: #409eff !important;
+}
+
+.content-container{
+    max-width: 90% !important;
+}

@@ -1,0 +1,78 @@
+@import '../../styles/various';
+
+$componentPrefix: 'naive-ui';
+$containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
+
+.#{$containerPrefix}__container > * {
+  font-size: 14px;
+}
+
+.#{$containerPrefix}__container {
+  div[class*='language-'] {
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: var(--component-preview-bg);
+    border-radius: 0;
+  }
+}
+
+.#{$containerPrefix}__container {
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+  border: 1px solid var(--component-preview-border);
+  border-radius: 4px;
+  box-shadow: 0 0 10px var(--component-preview-border);
+
+  .#{$defaultPrefix}-name_handle,
+  .#{$defaultPrefix}-description,
+  .#{$defaultPrefix}-source {
+    width: 100%;
+  }
+}
+
+.#{$containerPrefix}__container > .#{$defaultPrefix}-name_handle {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+
+  & > .#{$defaultPrefix}-component__name {
+    font-size: 20px;
+  }
+
+  & > .#{$defaultPrefix}-description__btns {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      color: var(--component-preview-text-1);
+      cursor: pointer;
+      fill: currentColor;
+    }
+
+    svg:not(:last-of-type) {
+      margin-right: 8px;
+    }
+  }
+}
+
+.#{$containerPrefix}__container > .#{$defaultPrefix}-description {
+  padding: 0 20px 20px;
+}
+
+.#{$containerPrefix}__container > .#{$defaultPrefix}-preview {
+  padding: 0 20px 20px;
+
+  & > p {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.#{$containerPrefix}__container > .#{$defaultPrefix}-source {
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}

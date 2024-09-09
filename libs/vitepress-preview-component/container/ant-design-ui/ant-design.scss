@@ -1,0 +1,101 @@
+@import '../../styles/various';
+
+$componentPrefix: 'ant-design';
+$containerPrefix: #{$defaultPrefix}__#{$componentPrefix};
+
+.#{$containerPrefix}__container > * {
+  font-size: 14px;
+}
+
+.#{$containerPrefix}__container {
+  div[class*='language-'] {
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: var(--component-preview-bg);
+    border-radius: 0;
+  }
+}
+
+.#{$containerPrefix}__container {
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+  border: 1px solid var(--component-preview-border);
+  border-radius: 4px;
+  box-shadow: 0 0 10px var(--component-preview-border);
+
+  .#{$defaultPrefix}-preview,
+  .#{$defaultPrefix}-description,
+  .#{$defaultPrefix}-source {
+    width: 100%;
+  }
+}
+
+.#{$containerPrefix}__container > .#{$defaultPrefix}-preview {
+  padding: 20px 20px 30px;
+
+  & > p {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.#{$containerPrefix}__container > .#{$defaultPrefix}-description {
+  .#{$defaultPrefix}-description__title {
+    position: relative;
+    width: 100%;
+    padding-left: 25px;
+
+    &::before {
+      position: absolute;
+      top: 12px;
+      left: 0;
+      width: 3%;
+      content: '';
+      border-top: 1px solid var(--component-preview-border);
+    }
+
+    &::after {
+      position: absolute;
+      top: 12px;
+      width: 100%;
+      margin-left: 5px;
+      content: '';
+      border-top: 1px solid var(--component-preview-border);
+    }
+  }
+
+  .#{$defaultPrefix}-description__content {
+    padding: 20px;
+  }
+
+  .#{$defaultPrefix}-description__split-line {
+    border-bottom: 1px dashed var(--component-preview-border);
+  }
+
+  .#{$defaultPrefix}-description__handle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      color: var(--component-preview-text-1);
+      cursor: pointer;
+      fill: currentColor;
+    }
+
+    svg:not(:last-of-type) {
+      margin-right: 8px;
+    }
+  }
+}
+
+.#{$containerPrefix}__container > .#{$defaultPrefix}-source {
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}

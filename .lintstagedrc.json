@@ -1,0 +1,7 @@
+{
+  "**/*.{html,vue,ts,js,json,md}": ["prettier --write"],
+  "packages/**/*.{ts,vue,tsx}": ["eslint --cache --fix"],
+  "libs/**/*.{ts,vue,tsx}": ["eslint --cache --fix"],
+  "packages/**/*.{css,scss,vue}": ["stylelint --cache --fix"],
+  "libs/**/*.{css,scss,vue}": ["stylelint --cache --fix"]
+}

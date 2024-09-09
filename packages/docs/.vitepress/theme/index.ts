@@ -1,10 +1,11 @@
 import type { App } from 'vue'
-import { ElementPlusContainer } from '@vitepress-demo-preview/component'
+import { ElementPlusContainer } from 'vitepress-preview-component'
 import DefaultTheme from 'vitepress/theme'
 import LimonergyUi from 'limonergy-ui'
+import './custom.css'
 
-import '@vitepress-demo-preview/component/dist/style.css'
-import 'limonergy-ui/theme/index.css'
+import 'vitepress-preview-component/style.css'
+import 'limonergy-ui/dist/index.css'
 
 export default {
   ...DefaultTheme,

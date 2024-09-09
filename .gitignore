@@ -10,6 +10,11 @@ lerna-debug.log*
 node_modules
 coverage
 dist
+
+**/node_modules/
+**/coverage/
+**/.dist/
+**/dist/
 dist-ssr
 *.local
 
@@ -35,3 +40,5 @@ dist-ssr
 
 # Stylelint cache
 .stylelintcache
+
+/packages/docs/.vitepress/cache/
