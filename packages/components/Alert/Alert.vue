@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { AlertProps, AlertEmits, AlertInstance } from './types'
-import { TypeIconMap } from './types.ts'
+import { typeIconMap } from './types.ts'
 import { computed, ref } from 'vue'
 import LmIcon from '../Icon/Icon.vue'
 
@@ -19,7 +19,7 @@ const emits = defineEmits<AlertEmits>()
 const visible = ref(true)
 const slots = defineSlots()
 
-const iconName = computed(() => TypeIconMap[props.type] ?? 'circle-info')
+const iconName = computed(() => typeIconMap.get(props.type) ?? 'circle-info')
 const withDescription = computed(() => props.description || slots.default)
 
 const close = () => {

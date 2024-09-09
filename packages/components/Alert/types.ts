@@ -19,10 +19,10 @@ export interface AlertInstance {
   close(): void
 }
 
-export enum TypeIconMap {
-  info = 'circle-info',
-  success = 'check-circle',
-  warning = 'circle-exclamation',
-  error = 'circle-xmark',
-  danger = 'circle-xmark',
-}
+export const typeIconMap = new Map([
+  ['info', 'circle-info'],
+  ['success', 'check-circle'],
+  ['warning', 'circle-exclamation'],
+  ['danger', 'circle-xmark'],
+  ['error', 'circle-xmark'],
+])
