@@ -41,6 +41,11 @@
 |   |-- workflows                      # GitHub Actions 工作流
 |       |-- test-and-deploy.yml        # 测试和部署工作流配置
 
+## husky 配置
+|-- .husky                            # husky 配置
+|   |-- commit-msg                    # 代码提交规范
+|   |-- pre-commit                    # 代码提交钩子：格式化，校验
+
 ## 库目录
 |-- libs                               # 库目录
 |   |-- vite-plugins                   # Vite 插件
