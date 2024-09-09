@@ -13,7 +13,7 @@
     "test-comp": "pnpm run test:filter @limonergy-ui/components test",
     "test-hooks": "pnpm run test:filter @limonergy-ui/hooks test",
     "build:filter": "cross-env NODE_ENV=production pnpm --filter",
-    "build": "run-s build-hooks build-utils build-comp",
+    "build": "run-s build:libs build-hooks build-utils build-comp",
     "build:libs": "run-s build-vite-plugin build-vitepress-plugin",
     "build-comp": "pnpm run build:filter limonergy-ui build",
     "build-hooks": "pnpm run build:filter @limonergy-ui/hooks build",
