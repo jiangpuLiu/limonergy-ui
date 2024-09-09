@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "pnpm --filter @limonergy-ui/play dev",
     "story": "pnpm --filter @limonergy-ui/play storybook",
-    "lint:lint-staged": "lint-staged",
     "docs:dev": "pnpm --filter @limonergy-ui/docs dev",
     "docs:build": "pnpm --filter @limonergy-ui/docs build",
     "test:filter": "cross-env NODE_ENV=test pnpm --filter",
@@ -23,11 +22,29 @@
     "lint:eslint": "eslint 'packages/**/*.{ts,vue,tsx}' 'libs/**/*.{ts,vue,tsx}' --cache --fix",
     "lint:style": "stylelint 'packages/**/*.{css,scss,vue}' 'libs/**/*.{css,scss,vue}' --cache --fix",
     "prepare": "husky install",
-    "commitlint": "commitlint --config commitlint.config.cjs -e -V"
+    "commitlint": "commitlint --config commitlint.config.cjs -e -V",
+    "lint": "lint-staged"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "lint-staged": {
+    "**/*.{html,vue,ts,js,json,md}": [
+      "prettier --write"
+    ],
+    "packages/**/*.{ts,vue,tsx}": [
+      "eslint --cache --fix --max-warnings=0"
+    ],
+    "libs/**/*.{ts,vue,tsx}": [
+      "eslint --cache --fix --max-warnings=0"
+    ],
+    "packages/**/*.{css,scss,vue}": [
+      "stylelint --cache --fix"
+    ],
+    "libs/**/*.{css,scss,vue}": [
+      "stylelint --cache --fix"
+    ]
+  },
   "devDependencies": {
     "@babel/eslint-parser": "^7.21.3",
     "@commitlint/cli": "17.5.1",
