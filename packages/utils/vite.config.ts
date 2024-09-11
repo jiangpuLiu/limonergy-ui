@@ -18,6 +18,7 @@ export default defineConfig({
       formats: ['es', 'cjs'], // 添加 CommonJS 格式
     },
     rollupOptions: {
+      external: ['lodash-es'],
       output: {
         exports: 'named', // 保持命名导出
       },
