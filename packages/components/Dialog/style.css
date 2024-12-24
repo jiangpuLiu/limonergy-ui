@@ -1,0 +1,116 @@
+.drag-dialog {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    max-height: calc(100% - 50px);
+    overflow: auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow:
+            0 4px 8px rgb(0 0 0 / 10%),
+            0 8px 16px rgb(0 0 0 / 10%),
+            0 16px 32px rgb(0 0 0 / 10%);
+}
+
+.drag-dialog__container {
+    max-height: calc(100% - 20px);
+    overflow: auto;
+}
+
+.drag-dialog__header {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    text-align: center;
+    cursor: move;
+    user-select: none;
+    border-bottom: 1px solid #e1d9d9;
+}
+
+.drag-dialog__title {
+    font-size: 18px;
+    color: #303133;
+}
+
+.header-icons {
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header-icons span {
+    margin-right: 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.drag-dialog__body {
+    min-height: 100px;
+    max-height: 80vh;
+    padding: 10px 20px;
+    overflow: auto;
+    background-color: transparent;
+    background-color: #aaa;
+}
+
+.drag-dialog__footer {
+    box-sizing: border-box;
+    padding: 10px 20px;
+    text-align: right;
+}
+
+.float-button {
+    position: absolute;
+    z-index: 1000;
+    width: 50px !important;
+    height: 50px;
+    color: white;
+    cursor: move;
+    user-select: none;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow:
+            0 4px 8px rgb(0 0 0 / 30%),
+            0 8px 16px rgb(0 0 0 / 30%),
+            0 16px 32px rgb(0 0 0 / 30%);
+    opacity: 0.8;
+}
+
+.drag-float__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.drag-float__button i {
+    cursor: pointer;
+}
+
+.dialog-fade-enter-active {
+    animation: fade 0.3s;
+}
+
+.dialog-fade-leave-active {
+    animation: fade 0.3s reverse;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

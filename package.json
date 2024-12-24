@@ -85,7 +85,9 @@
     "vite-plugin-compression2": "^1.2.0",
     "vite-plugin-dts": "^3.9.1",
     "vitest": "^1.6.0",
-    "vue-tsc": "^2.0.21"
+    "vue-tsc": "^2.0.21",
+    "vxe-pc-ui": "4.3.43",
+    "vxe-table": "4.9.35"
   },
   "dependencies": {
     "@limonergy-ui/components": "workspace:*",

@@ -192,6 +192,12 @@ importers:
       vue-tsc:
         specifier: ^2.0.21
         version: 2.1.6(typescript@5.5.4)
+      vxe-pc-ui:
+        specifier: 4.3.43
+        version: 4.3.43(vue@3.5.3(typescript@5.5.4))
+      vxe-table:
+        specifier: 4.9.35
+        version: 4.9.35(vue@3.5.3(typescript@5.5.4))
 
   libs/vite-plugins: {}
 
@@ -2239,6 +2245,11 @@ packages:
   '@vueuse/shared@11.0.3':
     resolution: {integrity: sha512-0rY2m6HS5t27n/Vp5cTDsKTlNnimCqsbh/fmT2LgE+aaU42EMfXo8+bNX91W9I7DDmxfuACXMmrd7d79JxkqWA==}
 
+  '@vxe-ui/core@4.0.23':
+    resolution: {integrity: sha512-1UfRNEnawaCT+OR6RkBv6YPNqKrVd7dfMJbvhzkKvvKYrS3/0/Xmppxt5zjMEzCnfPq0WtUjXJvutu1eWBI8rQ==}
+    peerDependencies:
+      vue: ^3.2.0
+
   '@yarnpkg/fslib@2.10.3':
     resolution: {integrity: sha512-41H+Ga78xT9sHvWLlFOZLIhtU6mTGZ20pZ29EiZa97vnxdohJD2AF42rCoAoWfqUz486xY6fhjMH+DYEM9r14A==}
     engines: {node: '>=12 <14 || 14.2 - 14.9 || >14.10.0'}
@@ -3019,6 +3030,9 @@ packages:
   dom-serializer@2.0.0:
     resolution: {integrity: sha512-wIkAryiqt/nV5EQKqQpo3SToSOV9J0DnbJqwK7Wv/Trc92zIAYZ4FlMu+JPFW1DfGFt81ZTCGgDEabffXeLyJg==}
 
+  dom-zindex@1.0.6:
+    resolution: {integrity: sha512-FKWIhiU96bi3xpP9ewRMgANsoVmMUBnMnmpCT6dPMZOunVYJQmJhSRruoI0XSPoHeIif3kyEuiHbFrOJwEJaEA==}
+
   domelementtype@2.3.0:
     resolution: {integrity: sha512-OLETBj6w0OsagBwdXnPdN0cnMfF9opN69co+7ZrbfPGrdpPVNBUj02spi6B1N7wChLQiPn4CSH/zJvXw56gmHw==}
 
@@ -3248,6 +3262,7 @@ packages:
   eslint@8.57.0:
     resolution: {integrity: sha512-dZ6+mexnaTIbSBZWgou51U6OmzIhYM2VcNdtiTtI7qPNZm35Akpr0f6vtw3w1Kmn5PYo+tZVfh13WrhpS6oLqQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   esm-resolve@1.0.11:
@@ -6138,6 +6153,9 @@ packages:
   vue-component-type-helpers@2.1.6:
     resolution: {integrity: sha512-ng11B8B/ZADUMMOsRbqv0arc442q7lifSubD0v8oDXIFoMg/mXwAPUunrroIDkY+mcD0dHKccdaznSVp8EoX3w==}
 
+  vue-component-type-helpers@2.2.0:
+    resolution: {integrity: sha512-cYrAnv2me7bPDcg9kIcGwjJiSB6Qyi08+jLDo9yuvoFQjzHiPTzML7RnkJB1+3P6KMsX/KbCD4QE3Tv/knEllw==}
+
   vue-demi@0.14.10:
     resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
     engines: {node: '>=12'}
@@ -6187,6 +6205,12 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  vxe-pc-ui@4.3.43:
+    resolution: {integrity: sha512-9IVCTbO8WB3pvcGbaBzUzJZXiCasnYbz/AHSQiOYR+verZzIJNu07blLAsrKAhMdLWN7Fm4tm6a8sWw8GAC/uw==}
+
+  vxe-table@4.9.35:
+    resolution: {integrity: sha512-UYeDISsvx680HJ9PAas9UH2+lra0MtyvqvyEkh/5dLxUQTz8FF2xoSF3+dug0mCyYEoqdFYGarfk1rM8b10Qcw==}
 
   w3c-xmlserializer@5.0.0:
     resolution: {integrity: sha512-o8qghlI8NZHU1lLPrpi2+Uq7abh4GGPpYANlalzWxyWteJOCsr/P+oPBA49TOLu5FTZO4d3F9MnWJfiMo4BkmA==}
@@ -6305,6 +6329,9 @@ packages:
   xdg-basedir@5.1.0:
     resolution: {integrity: sha512-GCPAHLvrIH13+c0SuacwvRYj2SxJXQ4kaVTT5xgL3kPrz56XxkF21IGhjSE1+W0aw7gpBWRGXLCPnPby6lSpmQ==}
     engines: {node: '>=12'}
+
+  xe-utils@3.5.32:
+    resolution: {integrity: sha512-R8ZT2lRnRBQO3pchM1za/Aru+/29DVDWD/OmOFODWWGkiQYz0iVIr8Bq8uKXS6zMhEsSqVCrn46bXzfe/Agjcw==}
 
   xml-name-validator@4.0.0:
     resolution: {integrity: sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==}
@@ -8198,7 +8225,7 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.5.3(typescript@5.5.4)
-      vue-component-type-helpers: 2.1.6
+      vue-component-type-helpers: 2.2.0
 
   '@szmarczak/http-timer@5.0.1':
     dependencies:
@@ -8754,6 +8781,12 @@ snapshots:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+
+  '@vxe-ui/core@4.0.23(vue@3.5.3(typescript@5.5.4))':
+    dependencies:
+      dom-zindex: 1.0.6
+      vue: 3.5.3(typescript@5.5.4)
+      xe-utils: 3.5.32
 
   '@yarnpkg/fslib@2.10.3':
     dependencies:
@@ -9540,6 +9573,8 @@ snapshots:
       domelementtype: 2.3.0
       domhandler: 5.0.3
       entities: 4.5.0
+
+  dom-zindex@1.0.6: {}
 
   domelementtype@2.3.0: {}
 
@@ -13030,6 +13065,8 @@ snapshots:
 
   vue-component-type-helpers@2.1.6: {}
 
+  vue-component-type-helpers@2.2.0: {}
+
   vue-demi@0.14.10(vue@3.5.3(typescript@5.5.4)):
     dependencies:
       vue: 3.5.3(typescript@5.5.4)
@@ -13095,6 +13132,18 @@ snapshots:
       '@vue/shared': 3.5.3
     optionalDependencies:
       typescript: 5.5.4
+
+  vxe-pc-ui@4.3.43(vue@3.5.3(typescript@5.5.4)):
+    dependencies:
+      '@vxe-ui/core': 4.0.23(vue@3.5.3(typescript@5.5.4))
+    transitivePeerDependencies:
+      - vue
+
+  vxe-table@4.9.35(vue@3.5.3(typescript@5.5.4)):
+    dependencies:
+      vxe-pc-ui: 4.3.43(vue@3.5.3(typescript@5.5.4))
+    transitivePeerDependencies:
+      - vue
 
   w3c-xmlserializer@5.0.0:
     dependencies:
@@ -13218,6 +13267,8 @@ snapshots:
   ws@8.18.0: {}
 
   xdg-basedir@5.1.0: {}
+
+  xe-utils@3.5.32: {}
 
   xml-name-validator@4.0.0: {}
 
