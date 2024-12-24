@@ -3,7 +3,9 @@ defineOptions({ name: 'VeButton' })
 </script>
 
 <template>
-  <vxe-button v-bind="$attrs"></vxe-button>
+  <vxe-button v-bind="$attrs">
+    <slot></slot>
+  </vxe-button>
 </template>
 
 <style scoped></style>

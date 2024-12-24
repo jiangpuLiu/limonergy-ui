@@ -3,7 +3,7 @@ defineOptions({
   name: 'App',
 })
 
-import { LmButton } from 'limonergy-ui'
+import { LmButton, VeButton } from 'limonergy-ui'
 import LmDialog from '../../components/Dialog/Dialog.vue'
 import { ref } from 'vue'
 
@@ -11,9 +11,9 @@ const visible = ref(false)
 </script>
 
 <template>
-  <LmButton type="primary" size="large" @click="visible = true">
+  <VeButton type="primary" size="large" @click="visible = true">
     打开弹窗
-  </LmButton>
+  </VeButton>
   <LmButton @click="visible = false" size="large">关闭弹窗</LmButton>
   <lm-dialog v-model:visible="visible" title="dragDialog" width="40%">
     <template #title>
