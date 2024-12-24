@@ -36,9 +36,9 @@ dist-ssr
 *.sw?
 
 # ESLint cache
-.eslintcache
+*.eslintcache
 
 # Stylelint cache
-.stylelintcache
+*.stylelintcache
 
 /packages/docs/.vitepress/cache/
