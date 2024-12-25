@@ -7,10 +7,7 @@
   },
   "npm": {
     "publish": true,
-    "registry": "http://nexus.limonergy.com:8081/repository/limo-npm/",
-    "auth": {
-      "token": "your-auth-token"
-    }
+    "registry": "http://nexus.limonergy.com:8081/repository/limo-npm/"
   },
   "plugins": {
     "release-it-commander": {

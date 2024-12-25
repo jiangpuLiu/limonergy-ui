@@ -1,6 +1,6 @@
 {
   "name": "limonergy-ui",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "type": "module",
   "description": "Components library by Vue3 + Ts",
   "main": "./dist/umd/index.umd.cjs",
