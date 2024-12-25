@@ -92,14 +92,7 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: [
-        'vue',
-        '@fortawesome/fontawesome-svg-core',
-        '@fortawesome/free-solid-svg-icons',
-        '@fortawesome/vue-fontawesome',
-        '@popperjs/core',
-        'async-validator',
-      ],
+      external: ['vue', 'async-validator'],
       output: {
         // 样式打包处理，方便后期可以按需引入
         assetFileNames: (assetInfo) => {

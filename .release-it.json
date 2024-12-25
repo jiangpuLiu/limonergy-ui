@@ -1,0 +1,20 @@
+{
+  "git": {
+    "commit": true,
+    "tag": true,
+    "push": true,
+    "pushTags": true
+  },
+  "npm": {
+    "publish": true,
+    "registry": "http://nexus.limonergy.com:8081/repository/limo-npm/",
+    "auth": {
+      "token": "your-auth-token"
+    }
+  },
+  "plugins": {
+    "release-it-commander": {
+      "git": "push && pushTags"
+    }
+  }
+}

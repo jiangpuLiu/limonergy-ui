@@ -1,4 +1,6 @@
 @import './reset.css';
+@import 'vxe-pc-ui/lib/style.css';
+@import 'vxe-table/lib/style.css';
 
 :root {
     /* colors */
